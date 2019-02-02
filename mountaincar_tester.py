@@ -12,6 +12,7 @@ from rl.memory import SequentialMemory
 
 ENV_NAME = 'MountainCar-v0'
 env = gym.make(ENV_NAME)
+env = gym.wrappers.Monitor(env, './video/',video_callable=lambda episode_id: True,force = True)
 
 obs_space_shape = env.observation_space.shape
 nb_actions = env.action_space.n
